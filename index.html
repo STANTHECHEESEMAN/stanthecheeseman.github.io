@@ -5,6 +5,17 @@
     <link rel="manifest" href="/manifest.json">
     <title>Home - Google Drive</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
     <link rel="icon" href= 
 "https://ibb.co/LngvHYz" 
           type="image/x-icon">
