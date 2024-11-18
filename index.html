@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="styles.css">
         <link id="fontStyle" rel="stylesheet" href="">
         <script>
+        let accessGranted = false;
+
         function checkKey() {
             const key = prompt("Please enter the access key:");
-            if (key !== "dg-9hua43q2057y") {
+            if (key === "dg-9hua43q2057y") {
+                accessGranted = true;
+            } else {
                 alert("Access denied. Incorrect key. You can get a key by talking to alex or by messaging me (Email is alexdegler17@gmail.com)");
+                window.location.href = "https://www.example.com";
             }
+            toggleButtons();
+        }
+
+        function toggleButtons() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.disabled = !accessGranted;
+            });
         }
     </script>
     <script>
