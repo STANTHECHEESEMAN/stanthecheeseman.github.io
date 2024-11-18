@@ -6,16 +6,19 @@
     <title>Home - Google Drive</title>
     <link rel="stylesheet" href="styles.css">
         <link id="fontStyle" rel="stylesheet" href="">
-            <script>
+      <script>
         function checkKey() {
             const key = prompt("Please enter the access key:");
             if (key !== "dg-9hua43q2057y") {
                 alert("Access denied. Incorrect key. You can get a key by talking to alex or by messaging me (Email is alexdegler17@gmail.com)");
-                window.location.href = "https://www.google.com/";
+                window.location.href = "https://www.example.com";
             } else {
                 document.querySelectorAll('a').forEach(link => {
-                    link.style.pointerEvents = 'auto';
-                    link.style.color = '#00ff00';
+                    link.onclick = function(event) {
+                        event.preventDefault();
+                        alert("Access granted. You can now use the links.");
+                        window.open(this.href, '_blank');
+                    };
                 });
             }
         }
